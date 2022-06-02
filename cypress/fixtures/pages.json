@@ -1,0 +1,4 @@
+{
+    "signup": "/signup",
+    "usernameAndPassword": "/signup#name_and_password"
+}
