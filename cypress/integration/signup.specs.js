@@ -18,7 +18,7 @@ describe('Validating the sign up flow', () => {
     cy.findByText('Sign up with Google').should('exist');
     cy.findByText('Already have an account?').should('exist');
     cy.findByText('Sign in').should('exist').should('have.class', 'link');
-  })
+  });
 
   it.only('signing up without selecting any option in sign up flow', () => {
 
@@ -42,15 +42,15 @@ describe('Validating the sign up flow', () => {
           cy.findByText('Skip').should('exist').click();
         } else {
           cy.log('final page');
-          return
+          return;
         }
-        recurse(commandFn, check)
+        recurse(commandFn, check);
       });
     };
     recurse(
       () => cy.wrap(Cypress.$("body:contains('Skip')").length),
       (len) => len === 1   
-    )
+    );
 
     //testing start building page
     cy.findByText(`Let’s start building!`).should('exist');

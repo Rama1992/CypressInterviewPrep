@@ -3,4 +3,4 @@ export const emailId = () => {
   const email = `rama${randomNumber}@grr.la`;
 
   return email;
-}
+};

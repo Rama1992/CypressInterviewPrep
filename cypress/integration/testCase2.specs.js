@@ -11,8 +11,8 @@ describe('Inviting a new user as editor', () => {
       if(Cypress.$("body:contains('RamaTest')").length) {
         cy.deleteBaseFromDashboard('RamaTest');
       }
-    })
-  })
+    });
+  });
 
   it('creating a new base and inviting a new user as editor', () => {
     cy.createBase('RamaTest');
@@ -25,7 +25,7 @@ describe('Inviting a new user as editor', () => {
     cy.get(`a[aria-label="RamaTest"]`).should('exist')
       .siblings('.absolute').within(() => {
         cy.get('.mr-half').should('exist').click();
-      })
+      });
         
     //validting the collaborators modal
     cy.findByText('Base collaborators').should('exist');
@@ -59,6 +59,6 @@ describe('Inviting a new user as editor', () => {
       if(Cypress.$("body:contains('RamaTest')").length) {
         cy.deleteBaseFromDashboard('RamaTest');
       }
-    })
-  })
+    });
+  });
 });

@@ -34,6 +34,7 @@
         "vars": "all"
       }
     ],
+    "semi": [2, "always"],
     "unused-imports/no-unused-imports": "error"
 	}
 }

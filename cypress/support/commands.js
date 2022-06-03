@@ -24,7 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-import * as pages from '../fixtures/pages.json'
+import * as pages from '../fixtures/pages.json';
 import '@testing-library/cypress/add-commands';
 
 Cypress.Commands.add('login', () => {
@@ -86,8 +86,8 @@ Cypress.Commands.add('inviteToBase', (inviteeEmail, inviteeRole) => {
     cy.get('.hdropdown').within(() => {
       cy.findByText(category).should('exist');
       cy.findByText(inviteCategoryDescription[inviteCategory.indexOf(category)]).should('exist');
-    })
-  })
+    });
+  });
     
   //sending invite to email
   cy.findByText(inviteeRole).click();
