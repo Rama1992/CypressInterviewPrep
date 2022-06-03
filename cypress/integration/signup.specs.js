@@ -39,8 +39,6 @@ describe('Validating the sign up flow', () => {
     const recurse = (commandFn, check) => {
       commandFn().then((val) => {
         if (check(val)) {
-          cy.findByText('Skip').should('exist').click();
-        } else {
           cy.log('final page');
           return;
         }
@@ -48,8 +46,11 @@ describe('Validating the sign up flow', () => {
       });
     };
     recurse(
-      () => cy.wrap(Cypress.$("body:contains('Skip')").length),
-      (len) => len === 1   
+      () => 
+        cy.findByText('Skip').should('exist').click().then(() => {
+          return cy.wrap(Cypress.$("body:contains('Skip')").length);
+        }),
+      (len) => len === 0
     );
 
     //testing start building page
