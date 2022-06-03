@@ -1,4 +1,5 @@
 {
+    "dashboard": "https://airtable.com/",
     "login": "/login",
     "signup": "/signup",
     "usernameAndPassword": "/signup#name_and_password"

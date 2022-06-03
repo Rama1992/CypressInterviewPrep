@@ -91,8 +91,7 @@ Cypress.Commands.add('inviteToBase', (inviteeEmail, inviteeRole) => {
     
     //sending invite to email
     cy.findByText(inviteeRole).click();
-    cy.findByText('Invite').should('exist').click();
-    cy.get('.snackbar').should('exist').should('contain.text', 'Successfully sent!');
+    cy.findByText('Invite').should('exist').click({force: true});
 });
 
 Cypress.Commands.add('deleteBaseFromDashboard', (baseName) => {
