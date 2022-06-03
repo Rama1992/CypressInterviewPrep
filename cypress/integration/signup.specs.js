@@ -24,7 +24,7 @@ describe('Validating the sign up flow', () => {
         cy.findByText('Sign in').should('exist').should('have.class', 'link');
     })
 
-    it('signing up without selecting any option in sign up flow', () => {
+    it.only('signing up without selecting any option in sign up flow', () => {
 
         //signing up
         cy.findByLabelText('Work email address').should('exist').clear().type(email);
@@ -41,8 +41,8 @@ describe('Validating the sign up flow', () => {
         
         //recursive function to click all skips
         const recurse = (commandFn, check) => {
-            commandFn().then(() => {
-                if (Cypress.$("body:contains('Skip')").length) {
+            commandFn().then((val) => {
+                if (check(val)) {
                     cy.findByText('Skip').should('exist').click();
                 } else {
                     cy.log('final page');

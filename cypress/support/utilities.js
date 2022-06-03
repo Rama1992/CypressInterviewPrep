@@ -4,15 +4,3 @@ export const emailId = () => {
 
     return email;
 }
-
-export const recurseSkip = () => {
-    cy.log('inside recurse skip');
-    cy.findByText('Skip').should('exist').click();
-    if (Cypress.$('.ml3').length) {
-        cy.log('on the last page')
-        return 1;
-    } else {
-        cy.log('inside else');
-        recurseSkip();
-    }
-}

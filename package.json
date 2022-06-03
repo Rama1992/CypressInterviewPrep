@@ -8,7 +8,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "lint": "npx eslint cypress/integration cypress/support",
-    "lint --fix": "npx eslint --fix cypress/integration cypress/support" 
+    "lint --fix": "npx eslint --fix cypress/integration cypress/support"
   },
   "dependencies": {
     "cypress": "^7.3.0"
