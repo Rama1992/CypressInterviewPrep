@@ -27,6 +27,10 @@
 import * as pages from '../fixtures/pages.json';
 import '@testing-library/cypress/add-commands';
 
+/**
+ * this command is used to login to the website as r4@grr.la user
+ */
+
 Cypress.Commands.add('login', () => {
   //launching the website
   cy.visit("https://www.airtable.com/");
@@ -61,6 +65,12 @@ Cypress.Commands.add('login', () => {
   cy.get('#sign-in-form-fields-root').find('button').contains('Sign in').should('exist').click();
 });
 
+/**
+ * this command is used to create a base from dashboard, this command allows us to pass the desired name we want the base to be named as
+ * 
+ * @param - {string} baseName - name of the base, example 'RamaBase'
+ */
+
 Cypress.Commands.add('createBase', (baseName) => {
   //validating and adding a new base
   cy.findByText('Start from scratch').should('exist').click();
@@ -70,6 +80,13 @@ Cypress.Commands.add('createBase', (baseName) => {
   cy.findByText('Untitled Base').should('exist').click();
   cy.get(`input[aria-label="rename base"]`).should('exist').clear().type(baseName).type('{enter}');
 });
+
+/**
+ * this command is used to invite users to the base, we can pass the invitee email and the role of the invitee as parameters
+ * 
+ * @param - {string} inviteeEmail - email of the invitee, example 'r5@grr.la'
+ * @param - {string} inviteeRole - role of the invitee, example 'editor'
+ */
 
 Cypress.Commands.add('inviteToBase', (inviteeEmail, inviteeRole) => {
   const inviteCategory = ['Creator', 'Editor', 'Commenter', 'Read only'];
@@ -93,6 +110,12 @@ Cypress.Commands.add('inviteToBase', (inviteeEmail, inviteeRole) => {
   cy.findByText(inviteeRole).click();
   cy.findByText('Invite').should('exist').click({force: true});
 });
+
+/**
+ * this command is used to delete a base from dashboard, this command allows us to pass the name of the base we want to delete
+ * 
+ * @param - {string} baseName - name of the base, example 'RamaBase'
+ */
 
 Cypress.Commands.add('deleteBaseFromDashboard', (baseName) => {
   cy.get(`a[aria-label="${baseName}"]`).trigger('hover').siblings(`div[tabindex="0"]`).click();

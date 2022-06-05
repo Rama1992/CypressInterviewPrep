@@ -1,6 +1,5 @@
 {
   "baseUrl": "https://www.airtable.com/",
-  "chromeWebSecurity": false,
   "viewportHeight": 900,
   "viewportWidth": 1280,
   "screenshotOnRunFailure": true,
