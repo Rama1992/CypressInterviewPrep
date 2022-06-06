@@ -1,6 +1,6 @@
-# Airtable Cypress take-home Assignment
+# Airtable Automation
 
-This take-home assignment project consists automation for two test cases requested by Airtable interview team.
+This project consists automation for two test cases.
 
 - Testcase 1: validating the sign-up flow
 - Testcase 2: validating the inviting collaborators flow via email
